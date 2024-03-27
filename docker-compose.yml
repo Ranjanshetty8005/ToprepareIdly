@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mmc-db:
+    image: mysql
+    ports:
+      - "8009:3306"
+    env_file:
+      - cred.env
+  mmc-web:
+    image: nginx
+    ports:
+      - "8010:80"
+    depends_on:
+      - mmc-db
